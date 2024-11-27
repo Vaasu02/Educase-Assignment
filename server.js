@@ -32,7 +32,7 @@ app.post('/addSchool', (req, res) => {
     }
 
     try {
-        const query = 'INSERT INTO schools (name, address, latitude, longitude) VALUES (?, ?, ?, ?)';
+        const query = 'INSERT INTO schoolss (name, address, latitude, longitude) VALUES (?, ?, ?, ?)';
         const values = [name, address, latitude, longitude];
 
         db.query(query, values, (err, result) => {
@@ -57,7 +57,7 @@ app.get('/listSchools', (req, res) => {
         return res.status(400).json({ error: 'Latitude and longitude are required!' });
     }
 
-    const query = 'SELECT * FROM schools';
+    const query = 'SELECT * FROM schoolss';
     db.query(query, (err, results) => {
         if (err) {
             console.error('Error fetching data:', err.message);
